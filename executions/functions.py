@@ -1,6 +1,6 @@
 def ask_input(q):
     while True:
-        r = input(f"{q} y / n\n>>")
+        r = input(f"{q} y / n\n>> ")
         if r in ["y", "n"]:
             return True if r == "y" else False
         print("Value error, please retry.")

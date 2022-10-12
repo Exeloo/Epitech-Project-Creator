@@ -11,8 +11,6 @@ def abort():
 
 
 def main():
-    print(os.system("ls"))
-    return
     print("Welcome in this project initiator !\nWe need you're help for some things.")
     if not ask_input("Do you want to proceed ?"):
         return abort()
