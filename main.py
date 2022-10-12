@@ -15,7 +15,7 @@ def main():
     if not ask_input("Do you want to proceed ?"):
         return abort()
     p_name = get_input("What is you're project name ?")
-    d_name = "../../" + get_input("What is you're folder's project path ?")
+    d_name = get_input("What is you're folder's project path ?")
     os.mkdir(d_name)
     file = open(f"{d_name}/project.info", "w")
     file.write(f"project_name: {p_name}")
