@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./compile_test && gcovr --exclude tests/ && gcovr --exclude tests/ --branches
