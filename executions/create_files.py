@@ -16,16 +16,18 @@ def create_files(p_name, d_name):
         os.mkdir(f"{d_name}/tests")
     array = get_input("Please, put your functions names.").split(" ")
     for (i, e) in enumerate(array):
+        if e == ".":
+            continue
         proto = get_input(f"Please, put the prototype of {e}")
         if is_task:
             file = open(f"{d_name}/{e}.c", "a")
             file.write(
-                header.format(p_name=p_name, task_n=f"{str(i) if i > 10 else '0' + str(i)}", file=e, type="Function"))
+                header.format(p_name=p_name, task_n=f"{str(i + 1) if i > 8 else '0' + str(i + 1)}", file=e, type="Function"))
             file.write(proto + "\n{\n\n}\n")
         if is_test:
             file = open(f"{d_name}/tests/test-{e}.c", "a")
             file.write(
-                header.format(p_name=p_name, task_n=f"{str(i) if i > 10 else '0' + str(i)}", file=e, type="Test"))
+                header.format(p_name=p_name, task_n=f"{str(i + 1) if i > 8 else '0' + str(i + 1)}", file=e, type="Test"))
             file.write(proto + ";\n\n")
             for let in ["a", "b", "c"]:
                 file.write(f"Test({e}, {let}) " + "{\n\n\n}\n\n")

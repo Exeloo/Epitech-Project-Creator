@@ -1,0 +1,14 @@
+main.c
+a.out
+.gitignore
+*~
+*#
+*.a
+unit_tests
+*.log
+*.gcno
+*.gcda
+*.info
+compile
+compile_test
+.vscode

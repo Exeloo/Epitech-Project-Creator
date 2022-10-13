@@ -47,6 +47,17 @@ int count_alpha(char const *str, int *words)
     return 0;
 }
 
+void malloc_array(char const *str, int *nWordArray, int nWords, char **words)
+{
+    count_alpha(str, nWordArray);
+    for (int i = 0; i <= nWords; i++) {
+        if (!nWordArray[i])
+            break;
+        words[i] = malloc(sizeof(char) * (nWordArray[i] + 1));
+        words[i][nWordArray[i]] = '\0';
+    }
+}
+
 char **my_str_to_word_array(char const *str)
 {
     int nWords = count_non_alpha(str);
@@ -56,12 +67,12 @@ char **my_str_to_word_array(char const *str)
     int countWord = 0;
 
     words[nWords + 1] = 0;
-    count_alpha(str, nWordArray);
-    for (int i = 0; i <= nWords; i++) {
-        words[i] = malloc(sizeof(char) * (nWordArray[i] + 1));
-        words[i][nWordArray[i]] = '\0';
-    }
+    malloc_array(str, nWordArray, nWords, words);
     for (int i = 0; str[i]; i++) {
+        if (!nWordArray[count]) {
+            words[count] = 0;
+            break;
+        }
         if (is_alpha_num(str[i]))
             words[count][countWord] = str[i];
         else
