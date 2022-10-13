@@ -7,9 +7,10 @@ def copy_files(d_name):
     print("Let's start with files in you're project")
     if ask_input("Do you want your library ?"):
         os.mkdir(f"{d_name}/lib")
-        os.mkdir(f"{d_name}/lib/my")
-        for i in os.listdir("./data/lib/my"):
-            shutil.copy(f"./data/lib/my/{i}", f"{d_name}/lib/my")
+        for lib in os.listdir("./data/lib"):
+            os.mkdir(f"{d_name}/lib/{lib}")
+            for file in os.listdir(f"./data/lib/{lib}"):
+                shutil.copy(f"./data/lib/{lib}/{file}", f"{d_name}/lib/{lib}")
     if ask_input("Do you want your include ?"):
         os.mkdir(f"{d_name}/include")
         for i in os.listdir("./data/include"):
