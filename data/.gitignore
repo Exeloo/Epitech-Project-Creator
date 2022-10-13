@@ -9,6 +9,6 @@ unit_tests
 *.gcno
 *.gcda
 *.info
-compile
-compile_test
+*.out
+compile_*
 .vscode
